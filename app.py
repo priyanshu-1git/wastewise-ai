@@ -47,6 +47,23 @@ def load_model():
 
 sku_summary, action_required, scenario_inventory = load_csv_data()
 
+# Human-readable product names for the dashboard
+category_display_names = {
+    "ReadyMeal": "Ready Meal",
+    "SnackBar": "Snack Bar"
+}
+
+sku_to_category = (
+    scenario_inventory.groupby("sku")["category"]
+    .first()
+    .to_dict()
+)
+
+def product_label(sku):
+    category = sku_to_category.get(sku, "Product")
+    category = category_display_names.get(category, category)
+    return f"{category} — {sku}"
+
 model_package = load_model()
 
 promo_model = model_package["model"]
@@ -313,10 +330,11 @@ with right:
             ascending=False
         )
     )
+    surplus_chart["product"] = surplus_chart["sku"].map(product_label)
 
     fig2 = px.bar(
         surplus_chart,
-        x="sku",
+        x="product",
         y="potential_surplus",
         title="Potential Surplus by At-Risk SKU"
     )
@@ -358,7 +376,7 @@ else:
             box = st.info
 
         box(
-            f'{row["sku"]} — {risk}'
+            f'{product_label(row["sku"])} — {risk}'
         )
 
         a, b, c, d = st.columns(4)
@@ -406,8 +424,13 @@ sku_list = sorted(
 )
 
 selected_sku = st.selectbox(
-    "Select a SKU",
-    sku_list
+    "Select a Product",
+    sku_list,
+    format_func=product_label
+)
+
+st.caption(
+    f"Currently analyzing: **{product_label(selected_sku)}**"
 )
 
 selected_sku_data = scenario_inventory[
