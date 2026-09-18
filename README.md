@@ -16,9 +16,9 @@
 **WasteWise AI is designed as an interactive Streamlit prototype.**
 
 🔗 **Live Demo:**  
-[Open WasteWise AI](https://checking-signed-witch-explained.trycloudflare.com)
+[Open WasteWise AI](https://wastewise-ai-app.streamlit.app/)
 
-> ⚠️ The current URL is a temporary development tunnel. A permanent deployment URL will be added after deployment.
+> ✅ The prototype is deployed on Streamlit Community Cloud and is available for interactive demonstration.
 
 ---
 
