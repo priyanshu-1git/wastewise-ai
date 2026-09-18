@@ -1,0 +1,3 @@
+sku,total_inventory,potential_surplus,shortest_shelf_life_days,highest_priority_score,surplus_percentage,waste_risk,recommended_action
+RE-004,646,99.13999999999999,1,62.53181818181818,15.34674922600619,Critical,Immediate markdown/promotion; prioritize FEFO sale; consider redistribution or donation if surplus remains.
+RE-017,393,16.80000000000001,1,46.339622641509436,4.274809160305346,Low Risk,Monitor inventory and forecast; maintain FEFO handling.
