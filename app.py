@@ -64,16 +64,28 @@ def product_label(sku):
     category = category_display_names.get(category, category)
     return f"{category} — {sku}"
 
-model_package = load_model()
+promo_model = load_model()
 
-promo_model = model_package["model"]
-sku_features = model_package["sku_features"]
-sku_promo_features = model_package["feature_columns"]
-
-daily_sales_promo = model_package["sales_history"].copy()
-daily_sales_promo["date"] = pd.to_datetime(
-    daily_sales_promo["date"]
+forecast_history = pd.read_csv("forecast_history.csv")
+forecast_history["date"] = pd.to_datetime(
+    forecast_history["date"]
 )
+
+sku_features = [
+    c for c in promo_model.feature_names_in_
+    if c.startswith("sku_")
+]
+
+sku_promo_features = [
+    "lag_1",
+    "lag_7",
+    "rolling_mean_7",
+    "rolling_mean_14",
+    "day_of_week",
+    "promotion_flag"
+] + sku_features
+
+daily_sales_promo = forecast_history.copy()
 
 
 # =========================================================
