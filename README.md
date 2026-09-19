@@ -6,7 +6,10 @@
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-red)](https://streamlit.io/)
-[![Machine Learning](https://img.shields.io/badge/ML-Random%20Forest-green)](https://scikit-learn.org/)
+[![Machine Learning](https://img.shields.io/badge/AI-Machine%20Learning-purple)](https://scikit-learn.org/)
+[![Scikit-learn](https://img.shields.io/badge/Library-Scikit--learn-orange)](https://scikit-learn.org/)
+[![Random Forest](https://img.shields.io/badge/Model-Random%20Forest-green)](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[![Plotly](https://img.shields.io/badge/Visualization-Plotly-blue)](https://plotly.com/)
 [![SDG 12](https://img.shields.io/badge/SDG-12%20Responsible%20Consumption-orange)](https://sdgs.un.org/goals/goal12)
 [![Status](https://img.shields.io/badge/Status-Prototype-yellow)]()
 
